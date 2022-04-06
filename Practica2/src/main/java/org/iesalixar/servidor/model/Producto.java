@@ -16,7 +16,7 @@ public class Producto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Producto(String productName, String productCode, String productLine, String productScale,
+	/*public Producto(String productName, String productCode, String productLine, String productScale,
 			String productVendor, String productDescription, int quantityInStock, Double buyPrice, Double msrp) {
 		this.productName = productName;
 		this.productCode = productCode;
@@ -27,7 +27,7 @@ public class Producto {
 		this.quantityInStock = quantityInStock;
 		this.buyPrice = buyPrice;
 		this.msrp = msrp;
-	}
+	}*/
 
 	public String getProductName() {
 		return productName;

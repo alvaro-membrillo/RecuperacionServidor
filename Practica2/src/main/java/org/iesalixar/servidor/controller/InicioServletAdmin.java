@@ -17,14 +17,14 @@ import org.iesalixar.servidor.utils.PasswordHashGenerator;
 /**
  * Servlet implementation class MainServlet
  */
-@WebServlet("/MainServlet")
-public class InicioServlet extends HttpServlet {
+@WebServlet("/MainServletAdmin")
+public class InicioServletAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Default constructor.
 	 */
-	public InicioServlet() {
+	public InicioServletAdmin() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -35,11 +35,11 @@ public class InicioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		/*DAOProductoImpl dao = new DAOProductoImpl();
+		DAOProductoImpl dao = new DAOProductoImpl();
 
-		request.setAttribute("productos", dao.getAllProductos());*/
+		request.setAttribute("productos", dao.getAllProductos());
 
-		request.getRequestDispatcher("WEB-INF/view/index.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -65,11 +65,7 @@ public class InicioServlet extends HttpServlet {
 					sesion.setAttribute("email", user.getEmail());
 					sesion.setAttribute("role", user.getRole());
 					
-					if (user.getRole().equals("user")) {
-						response.sendRedirect(request.getContextPath());
-					} else if (user.getRole().equals("admin")) {
-						response.sendRedirect(request.getContextPath()+"/Admin/Inicio");
-					}
+					response.sendRedirect(request.getContextPath()+"/Admin/Inicio");
 
 				} else {
 

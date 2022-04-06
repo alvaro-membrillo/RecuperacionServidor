@@ -15,14 +15,14 @@
 			<c:if test="${sessionScope.usuario==null}">
 				<div class="col-6">
 					<form method="POST">
-						<label>Usuario</label> <input type="text" class="form-control"
-							name="usuario" required> <label>firstName</label> <input
-							type="text" class="form-control" name="firstName" required>
-						<label>lastName</label> <input type="text" class="form-control"
-							name="lastName" required> <label>Password</label> <input
-							type="password" class="form-control" name="password" required>
-						<input type="submit" class="btn btn-primary w-100 mt-3"
-							value="Entrar" />
+						<label>Usuario</label>
+						<input type="text" class="form-control" name="usuario" required>
+						<!--<label>firstName</label>
+						<input type="text" class="form-control" name="firstName" required>
+						<label>lastName</label>
+						<input type="text" class="form-control" name="lastName" required>-->
+						<label>Password</label> <input type="password" class="form-control" name="password" required>
+						<input type="submit" class="btn btn-primary w-100 mt-3" value="Entrar" />
 					</form>
 					<p class="text-primary text-center mt-3">
 						<a href="Registro">Registrar usuario</a>
@@ -63,7 +63,7 @@
 											<td>${product.buyPrice}</td>
 											<td>${product.msrp}</td>
 											<td><a
-												href="EditarProductServlet?p=${product.productCode}"><i
+												href="EditarProduct?p=${product.productCode}"><i
 													class="bi bi-pencil-fill"></i></a></td>
 										</tr>
 									</c:forEach>

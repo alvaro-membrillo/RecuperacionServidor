@@ -6,6 +6,8 @@ import org.iesalixar.servidor.model.Producto;
 
 public interface DAOProducto {
 	
+	public Producto getProducto(String code);
 	public List<Producto> getAllProductos();
+	public boolean editProducto(Producto producto);
 
 }
