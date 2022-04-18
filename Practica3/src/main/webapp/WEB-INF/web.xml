@@ -9,4 +9,59 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Logout</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/Logout</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>InicioServlet</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.InicioServelt</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InicioServlet</servlet-name>
+		<url-pattern>/Home</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>empleados</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.EmpleadosServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>empleados</servlet-name>
+		<url-pattern>/Admin/Empleados</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AddEmpleadoServlet</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.AddEmpleadoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddEmpleadoServlet</servlet-name>
+		<url-pattern>/Admin/AddEmpleado</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>MostrarProductos</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.MostrarProductosServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MostrarProductos</servlet-name>
+		<url-pattern>/MostrarProductos</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

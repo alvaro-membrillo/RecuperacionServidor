@@ -66,5 +66,27 @@
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/Registro</url-pattern>
 	</servlet-mapping>
+	
+	
+	<!--<filter>
+		<filter-name>AdminFilter</filter-name>
+		<filter-class>org.iesalixar.servidor.controller.AdminFilter</filter-class>		
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>AdminFilter</filter-name>
+		<url-pattern>/Admin</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>UserFilter</filter-name>
+		<filter-class>org.iesalixar.servidor.controller.UserFilter</filter-class>		
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>UserFilter</filter-name>
+		<url-pattern>/Usuario</url-pattern>
+	</filter-mapping>-->
+	
 
 </web-app>
