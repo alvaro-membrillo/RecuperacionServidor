@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<fmt:setBundle basename="interface" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,17 +16,18 @@
 			<c:if test="${sessionScope.usuario==null}">
 				<div class="col-6">
 					<form method="POST">
-						<label>Usuario</label>
+						<label><fmt:message key="user" /></label>
 						<input type="text" class="form-control" name="usuario" required>
 						<!--<label>firstName</label>
 						<input type="text" class="form-control" name="firstName" required>
 						<label>lastName</label>
 						<input type="text" class="form-control" name="lastName" required>-->
-						<label>Password</label> <input type="password" class="form-control" name="password" required>
-						<input type="submit" class="btn btn-primary w-100 mt-3" value="Entrar" />
+						<label><fmt:message key="password" /></label>
+						<input type="password" class="form-control" name="password" required>
+						<input type="submit" class="btn btn-primary w-100 mt-3" value="<fmt:message key="enter" />" />
 					</form>
 					<p class="text-primary text-center mt-3">
-						<a href="Registro">Registrar usuario</a>
+						<a href="Registro"><fmt:message key="register" /></a>
 					</p>
 				</div>
 			</c:if>

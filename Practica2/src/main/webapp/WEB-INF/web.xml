@@ -12,6 +12,10 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
+	
+	<session-config>
+		<session-timeout>5</session-timeout>
+	</session-config>
 
 	<servlet>
 		<servlet-name>Inicio</servlet-name>
@@ -68,25 +72,25 @@
 	</servlet-mapping>
 	
 	
-	<!--<filter>
+	<filter>
 		<filter-name>AdminFilter</filter-name>
-		<filter-class>org.iesalixar.servidor.controller.AdminFilter</filter-class>		
+		<filter-class>org.iesalixar.servidor.filtros.AdminFilter</filter-class>		
 	</filter>
 	
 	<filter-mapping>
 		<filter-name>AdminFilter</filter-name>
-		<url-pattern>/Admin</url-pattern>
+		<url-pattern>/Admin/*</url-pattern>
 	</filter-mapping>
 	
 	<filter>
 		<filter-name>UserFilter</filter-name>
-		<filter-class>org.iesalixar.servidor.controller.UserFilter</filter-class>		
+		<filter-class>org.iesalixar.servidor.filtros.UserFilter</filter-class>		
 	</filter>
 	
 	<filter-mapping>
 		<filter-name>UserFilter</filter-name>
-		<url-pattern>/Usuario</url-pattern>
-	</filter-mapping>-->
+		<servlet-name>InicioServlet</servlet-name>
+	</filter-mapping>
 	
 
 </web-app>
