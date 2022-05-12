@@ -2,27 +2,28 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<fmt:setBundle basename="interface" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <jsp:include page="include/bootstrap.jsp" />
-<title>Orders</title>
+<title><fmt:message key="orders" /></title>
 </head>
 <body>
 	<div class="container mt-5">
 		<div class="row justify-content-center mt-5">
 			<jsp:include page="include/barra.jsp" />
 			
-			<h1 class="text-center">Orders Table</h1>
+			<h1 class="text-center"><fmt:message key="ordersTable" /></h1>
 			
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th scope="col">OrderNumber</th>
-						<th scope="col">OrderDate</th>
-						<th scope="col">shippedDate</th>
-						<th scope="col">status</th>
+						<th scope="col"><fmt:message key="orderNumber" /></th>
+						<th scope="col"><fmt:message key="orderDate" /></th>
+						<th scope="col"><fmt:message key="shippedDate" /></th>
+						<th scope="col"><fmt:message key="status" /></th>
 						<th scope="col"></th>
 					</tr>
 				</thead>

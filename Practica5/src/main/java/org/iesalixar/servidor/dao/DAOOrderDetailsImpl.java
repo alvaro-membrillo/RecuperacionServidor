@@ -20,7 +20,7 @@ public class DAOOrderDetailsImpl implements DAOOrderDetails {
 		OrderDetail orderDetail = null;
 		
 		try {
-			String sql = "SELECT * FROM orderdetails WHERE orderNumber=?";
+			String sql = "SELECT * FROM orderdetails od INNER JOIN products p ON od.productCode=p.productCode WHERE orderNumber=?";
 			PoolDB pool = new PoolDB();
 			con = pool.getConnection();
 			PreparedStatement statement = con.prepareStatement(sql);
@@ -34,6 +34,7 @@ public class DAOOrderDetailsImpl implements DAOOrderDetails {
 				orderDetail.setQuantityOrdered(rs.getInt("quantityOrdered"));
 				orderDetail.setPriceEach(rs.getDouble("priceEach"));
 				orderDetail.setOrderLineNumber(rs.getInt("orderLineNumber"));
+				orderDetail.setProductName(rs.getString("productName"));
 				orderDetails.add(orderDetail);
 			}
 			

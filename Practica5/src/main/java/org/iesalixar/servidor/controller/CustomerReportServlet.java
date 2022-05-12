@@ -20,31 +20,41 @@ import org.iesalixar.servidor.model.Product;
 @WebServlet("/CustomerReportServlet")
 public class CustomerReportServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CustomerReportServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		int orderNumber = Integer.parseInt(request.getParameter("on"));
-		DAOOrderDetailsImpl dao = new DAOOrderDetailsImpl();
-		List<OrderDetail> orderDetails = dao.getOrderDetailsByOrderNumber(orderNumber);
-		request.setAttribute("orderDetails", orderDetails);
-		
-		DAOProductImpl daoProduct = new DAOProductImpl();
-		/*List<Product> products = daoProduct.getProductById();
-		request.setAttribute("products", products);*/
-		
-		request.getRequestDispatcher("/WEB-INF/view/orderReport.jsp").forward(request, response);
+	public CustomerReportServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String orderNumber = request.getParameter("on");
+		if (orderNumber != null) {
+			
+			request.setAttribute("on", orderNumber);
+			DAOOrderDetailsImpl dao = new DAOOrderDetailsImpl();
+			List<OrderDetail> orderDetails = dao.getOrderDetailsByOrderNumber(Integer.parseInt(orderNumber));
+			request.setAttribute("orderDetails", orderDetails);
+
+			DAOProductImpl daoProduct = new DAOProductImpl();
+			/*
+			 * List<Product> products = daoProduct.getProductById();
+			 * request.setAttribute("products", products);
+			 */
+		} else {
+			request.setAttribute("error", "No existe");
+		}
+		
+		request.getRequestDispatcher("/WEB-INF/view/orderReport.jsp").forward(request, response);
+
+	}
+
 }

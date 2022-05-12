@@ -7,6 +7,7 @@ public class OrderDetail {
 	private int quantityOrdered;
 	private double priceEach;
 	private int orderLineNumber;
+	private String productName;
 
 	public OrderDetail() {
 		// TODO Auto-generated constructor stub
@@ -50,6 +51,14 @@ public class OrderDetail {
 
 	public void setOrderLineNumber(int orderLineNumber) {
 		this.orderLineNumber = orderLineNumber;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
 }
