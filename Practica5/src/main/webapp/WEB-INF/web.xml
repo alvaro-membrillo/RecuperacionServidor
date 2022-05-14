@@ -63,4 +63,22 @@
   	<url-pattern>/OrderReport</url-pattern>
   </servlet-mapping>
   
+  <filter>
+  	<filter-name>UserFilter</filter-name>
+  	<filter-class>org.iesalixar.servidor.filtros.UserFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>UserFilter</filter-name>
+  	<url-pattern>/OrderReport</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>AdminFilter</filter-name>
+  	<filter-class>org.iesalixar.servidor.filtros.AdminFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>AdminFilter</filter-name>
+  	<url-pattern>/Admin/*</url-pattern>
+  </filter-mapping>
+  
 </web-app>
