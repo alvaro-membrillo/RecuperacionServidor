@@ -14,15 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet Filter implementation class AdminFilter
+ * Servlet Filter implementation class UserrFilter
  */
-@WebFilter("/AdminFilter")
-public class AdminFilter implements Filter {
+@WebFilter("/PublicFilter")
+public class PublicFilter implements Filter {
 
     /**
      * Default constructor. 
      */
-    public AdminFilter() {
+    public PublicFilter() {
         // TODO Auto-generated constructor stub
     }
 
@@ -38,14 +38,14 @@ public class AdminFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
-		HttpServletRequest httpRequest = (HttpServletRequest) request;
+		HttpServletRequest httpRequest = (HttpServletRequest) request; 
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		
 		HttpSession sesion = httpRequest.getSession();
 		String role = (String) sesion.getAttribute("role");
 		
-		if (!sesion.isNew() && role!=null && role.equals("admin")) {
-			chain.doFilter(httpRequest, httpResponse);
+		if (!sesion.isNew() && role!=null) {
+			chain.doFilter(request, response);
 		} else {
 			httpResponse.sendRedirect(httpRequest.getContextPath());
 		}

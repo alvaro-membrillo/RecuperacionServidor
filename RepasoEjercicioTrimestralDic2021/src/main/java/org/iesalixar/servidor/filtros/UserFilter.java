@@ -42,9 +42,9 @@ public class UserFilter implements Filter {
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		
 		HttpSession sesion = httpRequest.getSession();
-		String usuario = (String) sesion.getAttribute("usuario");
+		String role = (String) sesion.getAttribute("role");
 		
-		if (!sesion.isNew() && usuario!=null && usuario.equals("user")) {
+		if (!sesion.isNew() && role!=null && role.equals("user")) {
 			chain.doFilter(request, response);
 		} else {
 			httpResponse.sendRedirect(httpRequest.getContextPath());

@@ -66,7 +66,16 @@
 		<servlet-name>productos</servlet-name>
 		<url-pattern>/MostrarProductos</url-pattern>
 	</servlet-mapping>
-
+	
+	<filter>
+		<filter-name>PublicFilter</filter-name>
+		<filter-class>org.iesalixar.servidor.filtros.PublicFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>PublicFilter</filter-name>
+		<url-pattern>/Home</url-pattern>
+	</filter-mapping>
+	
 	<filter>
 		<filter-name>UserFilter</filter-name>
 		<filter-class>org.iesalixar.servidor.filtros.UserFilter</filter-class>
