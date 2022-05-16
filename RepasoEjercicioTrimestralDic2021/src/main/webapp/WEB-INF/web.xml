@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>RepasoEjercicioTrimestralDic2021</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>logout</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>logout</servlet-name>
+		<url-pattern>/Logout</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>inicio</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.InicioServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>inicio</servlet-name>
+		<url-pattern>/Home</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>empleados</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.EmpleadoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>empleados</servlet-name>
+		<url-pattern>/Admin/Empleados</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>addEmpleados</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.AddEmpleadoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>addEmpleados</servlet-name>
+		<url-pattern>/Admin/AddEmpleado</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>productos</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.MostrarProductosServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>productos</servlet-name>
+		<url-pattern>/MostrarProductos</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>UserFilter</filter-name>
+		<filter-class>org.iesalixar.servidor.filtros.UserFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>UserFilter</filter-name>
+		<url-pattern>/MostrarProductos</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>AdminFilter</filter-name>
+		<filter-class>org.iesalixar.servidor.filtros.AdminFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AdminFilter</filter-name>
+		<url-pattern>/Admin/*</url-pattern>
+	</filter-mapping>
+
+</web-app>
