@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>RecuperacionFinalPrimerTrimestre</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>logout</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>logout</servlet-name>
+		<url-pattern>/LogOut</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>register</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.RegisterServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>register</servlet-name>
+		<url-pattern>/Registro</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>inicio</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.InicioServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>inicio</servlet-name>
+		<url-pattern>/Home</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>addProductLine</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.AddProductLineServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>addProductLine</servlet-name>
+		<url-pattern>/Admin/AddProductLine</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>changeAssigment</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.ChangeAssigmentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>changeAssigment</servlet-name>
+		<url-pattern>/Admin/ChangeProductProductLine</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>productLineReport</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.ProductLineReportServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>productLineReport</servlet-name>
+		<url-pattern>/ProductLine</url-pattern>
+	</servlet-mapping>
+
+	<!-- FILTROS -->
+<!-- 	<filter> -->
+<!-- 		<filter-name>FiltroAmbos</filter-name> -->
+<!-- 		<filter-class>org.iesalixar.servidor.filtros.LoggedFilter</filter-class> -->
+<!-- 	</filter> -->
+<!-- 	<filter> -->
+<!-- 		<filter-name>FiltroAdmin</filter-name> -->
+<!-- 		<filter-class>org.iesalixar.servidor.filtros.AdminFilter</filter-class> -->
+<!-- 	</filter> -->
+<!-- 	<filter> -->
+<!-- 		<filter-name>FiltroUsuario</filter-name> -->
+<!-- 		<filter-class>org.iesalixar.servidor.filtros.UserFilter</filter-class> -->
+<!-- 	</filter> -->
+
+
+<!-- 	<filter-mapping> -->
+<!-- 		<filter-name>LoggedFilter</filter-name> -->
+<!-- 		<servlet-name>InicioServlet</servlet-name> -->
+<!-- 		<url-pattern>/Home</url-pattern> -->
+<!-- 	</filter-mapping> -->
+
+<!-- 	<filter-mapping> -->
+<!-- 		<filter-name>FiltroAdmin</filter-name> -->
+<!-- 		<servlet-name>AddProductLineServlet</servlet-name> -->
+<!-- 		<url-pattern>/Admin/AddProductLine</url-pattern> -->
+<!-- 		<servlet-name>ChangeAssigmentServlet</servlet-name> -->
+<!-- 		<url-pattern>/Admin/ChangeProductProductLine</url-pattern> -->
+<!-- 	</filter-mapping> -->
+	
+<!-- 	<filter-mapping> -->
+<!-- 		<filter-name>FiltroUsuario</filter-name> -->
+<!-- 		<servlet-name>ProductLineReportServlet</servlet-name> -->
+<!-- 		<url-pattern>/ProductLine</url-pattern> -->
+<!-- 	</filter-mapping> -->
+
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/img/*</url-pattern>
+		<url-pattern>/css/*</url-pattern>
+		<url-pattern>/js/*</url-pattern>
+	</servlet-mapping>
+</web-app>

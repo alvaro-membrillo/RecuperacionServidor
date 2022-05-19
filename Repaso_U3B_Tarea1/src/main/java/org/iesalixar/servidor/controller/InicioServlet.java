@@ -9,22 +9,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.iesalixar.servidor.dao.DAOProductoImpl;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.iesalixar.servidor.dao.DAOUsuarioImpl;
 import org.iesalixar.servidor.model.Usuario;
 import org.iesalixar.servidor.utils.PasswordHashGenerator;
 
 /**
- * Servlet implementation class MainServlet
+ * Servlet implementation class InicioServlet
  */
-@WebServlet("/MainServlet")
 public class InicioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static Logger logger = Logger.getLogger(InicioServlet.class);
 
 	/**
-	 * Default constructor.
+	 * @see HttpServlet#HttpServlet()
 	 */
 	public InicioServlet() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -35,13 +37,13 @@ public class InicioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		/*DAOProductoImpl dao = new DAOProductoImpl();
-
-		request.setAttribute("productos", dao.getAllProductos());*/
-
 		request.getRequestDispatcher("WEB-INF/view/index.jsp").forward(request, response);
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -49,41 +51,47 @@ public class InicioServlet extends HttpServlet {
 		String password = request.getParameter("password");
 
 		if (usuario != null && password != null) {
-
 			DAOUsuarioImpl dao = new DAOUsuarioImpl();
 			Usuario user = dao.getUsuario(usuario);
 
 			if (user != null) {
 				if (PasswordHashGenerator.checkPassword(password, user.getPassword())) {
-
 					HttpSession sesion = request.getSession();
-
+					
 					sesion.setAttribute("usuario", user.getUsuario());
 					sesion.setAttribute("firstName", user.getFirstName());
 					sesion.setAttribute("lastName", user.getLastName());
 					sesion.setAttribute("email", user.getEmail());
 					sesion.setAttribute("role", user.getRole());
-					
-					if (user.getRole().equals("user")) {
-						response.sendRedirect(request.getContextPath());
-					} else if (user.getRole().equals("admin")) {
-						response.sendRedirect(request.getContextPath()+"/Admin/Inicio");
-					}
 
+					if ("admin".equals(user.getRole())) {
+						response.sendRedirect(request.getContextPath() + "/Admin/Inicio");
+						logger.log(Level.INFO, "Admin se ha conectado");
+					} else {
+						response.sendRedirect(request.getContextPath());
+						logger.log(Level.INFO, "Usuario se ha conectado");
+						/*doGet(request, response);
+						return;*/
+					}
 				} else {
-					
-					request.setAttribute("error", "login inválido");
+					request.setAttribute("error", "Credenciales incorrectas");
+					logger.log(Level.WARN, "Credenciales incorrectas");
 					doGet(request, response);
 					return;
 				}
 			} else {
-
-				request.setAttribute("error", "Usuario no existente");
+				request.setAttribute("Error", "Usuario no existente");
+				logger.log(Level.WARN, "Usuario no existente");
 				doGet(request, response);
 				return;
 			}
-
+		} else {
+			request.setAttribute("error", "Login incorrecto");
+			logger.log(Level.WARN, "Login inválido, usuario no existente");
+			doGet(request, response);
+			return;
 		}
+
 	}
 
 }
